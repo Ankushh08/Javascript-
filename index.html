@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    (() => {
+        Array.prototype.myFiler = function(logic) {
+            let resultingArray = [];
+            console.log(this)
+            for (let i = 0; i < this.length; i++) {
+                if (logic(this[i])) {
+                    resultingArray.push(this[i]);
+                }
+            }
+
+            return resultingArray;
+        }
+
+
+        let arr = [1, 2, 3, 4];
+
+        const logicFn = (num) => {
+            return num > 2;
+        }
+        arr.myFiler(logicFn)
+
+        console.log(arr.myFiler(logicFn));
+    })();
+</script>
